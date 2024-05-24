@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marriage Proposal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Will you marry me? 💍</h2>
+        <button onclick="showNext('OK')">OK</button>
+        <button onclick="showNext('no')">No</button>
+        <div id="reason" class="hidden">
+            <h2>Why not? 🤔</h2>
+            <button onclick="showNext('dontLike')">Because I don't like you</button>
+            <button onclick="showNext('justKidding')">Just kidding, I'll marry you</button>
+        </div>
+        <div id="plsss" class="hidden">
+            <h2>Plssss marry me 🙏</h2>
+            <button onclick="showNext('OK')">OK:)</button>
+            <button onclick="showNext('NO')">NO>:(</button>
+        </div>
+        <div id="prettyPls" class="hidden">
+            <h2>Pretty pls 😊</h2>
+            <button onclick="showNext('OK')">OK:)</button>
+            <button onclick="showNext('NO')">NO>:(</button>
+        </div>
+        <div id="marryMe" class="hidden">
+            <h2>WILL YOU MARRY ME>:(?? 😡</h2>
+            <button onclick="showNext('YES')">YES:)</button>
+            <button onclick="showNext('NO')">NO>:(</button>
+        </div>
+        <div id="married" class="hidden">
+            <h2>WE'RE MARRIED EYYYYYYY 🎉</h2>
+        </div>
+    </div>
+
+    <script>
+        let attempts = 0;
+
+        function showNext(choice) {
+            const reasonDiv = document.getElementById('reason');
+            const plsssDiv = document.getElementById('plsss');
+            const prettyPlsDiv = document.getElementById('prettyPls');
+            const marryMeDiv = document.getElementById('marryMe');
+            const marriedDiv = document.getElementById('married');
+
+            if (choice === 'no' && attempts < 5) {
+                attempts++;
+                reasonDiv.classList.remove('hidden');
+            } else if (choice === 'dontLike') {
+                plsssDiv.classList.remove('hidden');
+            } else if (choice === 'justKidding') {
+                marriedDiv.classList.remove('hidden');
+            } else if (choice === 'OK') {
+                prettyPlsDiv.classList.remove('hidden');
+            } else if (choice === 'NO') {
+                marryMeDiv.classList.remove('hidden');
+            } else if (choice === 'YES') {
+                marriedDiv.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
